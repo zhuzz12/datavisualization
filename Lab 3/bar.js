@@ -56,16 +56,42 @@ async function drawBar(){
 							.attr("y", d=> yScaler(yAccessor(d)))
 							.attr("width", d=> d3.max([0, xScaler(d.x1) - xScaler(d.x0) - barPadding]))
 							.attr("height", d=> dimensions.boundedHeight - yScaler(yAccessor(d)))
-							.attr("fill", "#1111EE");
+							.attr("fill", "#0080FF");
 
-	//const barText = binGroups.append
 
 	let xAxisGen = d3.axisBottom().scale(xScaler);
 	let yAxisGen = d3.axisLeft().scale(yScaler);
 
-	const axisX = binGroups.append("g").call(xAxisGen).style("transform",`translateY(${dimensions.boundedHeight}px)`); 
-	const axisY = binGroups.append("g").call(yAxisGen); //style("transform", `translateX(${dimensions.margin.left/2}px)`);
+	const axisX = bounds.append("g").call(xAxisGen).style("transform",`translateY(${dimensions.boundedHeight}px)`); 
+	const axisY = bounds.append("g").call(yAxisGen); //style("transform", `translateX(${dimensions.margin.left/2}px)`);
 
+	const mean = d3.mean(dataset, humidityAccessor); 
+	console.log(mean);
+
+	const meanLine = bounds.append("line")
+							.attr("x1", xScaler(mean))
+							.attr("x2", xScaler(mean))
+							.attr("y1", -20)
+							.attr("y2", dimensions.boundedHeight)
+							.attr("stroke", "black")
+							.attr("stroke-dasharray", "10px 4px"); 
+
+	const meanLabel = bounds.append("text")
+							.attr("x", xScaler(mean))
+							.attr("y", dimensions.boundedHeight + 30)
+							.text("Mean")
+							.attr("fill", "maroon")
+							.attr("font-size", "12px")
+							.attr("text-anchor", "middle");
+
+	const barText = binGroups.filter(yAccessor)
+							.append("text")
+							.attr("x", d => xScaler(d.x0) + (xScaler(d.x1) - xScaler(d.x0))/2)
+							.attr("y", d => yScaler(yAccessor(d)) - 5)
+							.text(yAccessor)
+							.attr("fill","darkgrey")
+  							.attr("font-size","12px")
+      						.attr("text-anchor","middle");
 }
 
 drawBar(); 
