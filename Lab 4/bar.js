@@ -1,17 +1,16 @@
 async function drawBar(){
-	const dataset = await d3.json("./my_weather_data.json"); 
+	const dataset = await d3.json("./forviz.json"); 
 
-	const humidityAccessor = d => d.humidity; 
+	const humidityAccessor = d => d; 
 	const yAccessor = d => d.length;
 
-
-	const width = 600;
+	const width = 800;
 	let dimensions = {
 		width : width, 
 		height: width * 0.6, 
 		margin: {
 			top: 30, 
-			right: 10, 
+			right: 30, 
 			bottom: 50, 
 			left: 50
 		}
@@ -64,7 +63,7 @@ async function drawBar(){
 	let yAxisGen = d3.axisLeft().scale(yScaler);
 
 	const axisX = bounds.append("g").call(xAxisGen).style("transform",`translateY(${dimensions.boundedHeight}px)`); 
-	const axisY = bounds.append("g").call(yAxisGen); //style("transform", `translateX(${dimensions.margin.left/2}px)`);
+	//const axisY = bounds.append("g").call(yAxisGen); 
 
 	const mean = d3.mean(dataset, humidityAccessor); 
 	console.log(mean);
