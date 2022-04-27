@@ -1,0 +1,69 @@
+.wrapper {
+	position: relative;
+}
+
+.dot {
+	fill : cornflowerblue;
+}
+
+.dot:hover {
+	fill: darkblue;
+}
+
+
+.x-axis-label {
+	fill: black;
+	font-size: 1.4em;
+	text-transform: capitalize;
+	font-weight: 600;
+}
+
+.y-axis-label {
+  fill: black;
+  font-size: 1.4em;
+  text-anchor: middle;
+  transform: rotate(-90deg);
+  font-weight: 600;
+}
+
+body {
+	display: flex;
+	justify-content: center;	
+	padding: 5em 2em;
+	font-family: sans-serif;
+}
+
+.tooltip {
+	opacity: 0;
+	position: absolute;
+	top: -12px;
+	left: 0;
+	padding: 0.6em 1em;
+	background: #fff;
+	text-align: center;
+	border: 1px solid #ddd;
+	z-index: 10;
+	transition: all 0.2s ease-out;
+	pointer-events: none;
+}
+
+.tooltip:before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 12px;
+	height: 12px;
+	background: white;
+	border: 1px solid #ddd;
+	border-top-color: transparent;
+    border-left-color: transparent;
+    transform: translate(-50%, 50%) rotate(45deg);
+    transform-origin: center center;
+    z-index: 10;
+}
+
+.tooltip-range {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
