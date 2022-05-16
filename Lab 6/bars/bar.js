@@ -56,6 +56,8 @@ async function drawBars(){
 							.thresholds(12);
 	const bins = binsGenerator(dataset);
 
+	console.log(bins);
+
 	const yScale = d3.scaleLinear()
 						.domain([0,d3.max(bins, yAccessor)])
 						.range([dimensions.boundedHeight,0])

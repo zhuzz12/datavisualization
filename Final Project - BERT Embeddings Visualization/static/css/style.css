@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+}
+
+
+button{
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(153, 0, 0, 0.6);
+    color: white;
+    border: none;
+    box-shadow: 0 5px 0 0 seagreen;
+    border-radius: 6px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+}
+
+textarea{ 
+    margin-bottom: 10px; 
+    background: rgba(255, 102, 102,0.5);
+    padding: 0.5em 1em;
+    outline: none;
+    font-size: 1.3em;
+    color: rgba(0, 0, 0,0.6);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 6px;
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+    appearance: none;
+    -webkit-appearance: none;
+
+    -webkit-transition: box-shadow .5s ease;
+    -moz-transition: box-shadow .5s ease;
+    -o-transition: box-shadow .5s ease;
+    -ms-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
+}
+
+h1 {
+    margin-bottom: 10px; 
+    padding: 0.5em 1em;
+    outline: none;
+    font-size: 1.7em;
+    color: rgba(0, 0, 0,0.6);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    appearance: none;
+    -webkit-appearance: none;
+    text-align: center;    
+}
+
+.tooltip {
+    opacity: 0;
+    position: absolute;
+    top: -12px;
+    left: 0;
+    padding: 0.6em 1em;
+    background: #fff;
+    text-align: center;
+    border: 1px solid #ddd;
+    z-index: 10;
+    transition: all 0.2s ease-out;
+    pointer-events: none;
+}
+
+.tooltip:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: translate(-50%, 50%) rotate(45deg);
+    transform-origin: center center;
+    z-index: 10;
+}
+
+.tooltip-range {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.circle circle:hover {
+    fill: purple;
+}
+
+#word {
+    font-weight: 600;
+}
+
+.bin {
+	fill : rgba(255, 102, 102,0.8);
+}
+
+.scores text {
+	text-anchor: middle;
+	fill: darkgrey;
+	font-size: 12px;
+	font-family: sans-serif;
+}
+
+.words text{
+    text-anchor: middle;
+	fill: black;
+	font-size: 12px;
+	font-family: sans-serif;
+}
